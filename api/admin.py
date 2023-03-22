@@ -14,7 +14,8 @@ admin.site.index_title  =  "NICIRUSHA Blog Admin"
 class AdminArticle(ImportExportModelAdmin):
     list_display = ['title', 'intro', 'content', 'photo', 'autor', 'category', 'published', 'edit', 'date', 'slug']
     list_editable = ['intro', 'content', 'photo', 'autor', 'category', 'published', 'edit', 'date', 'slug']
-    search_fields = ('title', 'intro', 'content', 'photo', 'autor', 'category', 'published', 'edit', 'date', 'slug',)
+    search_fields = ('intro', 'content', 'photo', 'published', 'edit', 'date', 'slug')
+    list_filter = ('autor', 'category', 'date',)
 
     prepopulated_fields = {"slug": ("date","title",)}  # new
 
@@ -27,7 +28,7 @@ admin.site.register(Article, AdminArticle)
 class AdminAutor(ImportExportModelAdmin):
     list_display = ['fullName', 'phone']
     list_editable = ['phone']
-    search_fields = ('fullName', 'phone',)
+    search_fields = ('fullName', 'phone')
 
     actions = [export_as_csv_action()]
     resource_class = AutorResource

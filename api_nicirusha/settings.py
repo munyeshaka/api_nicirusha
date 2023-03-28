@@ -22,6 +22,8 @@ ALLOWED_HOSTS = ['*']
 CORS_ALLOW_ALL_ORIGINS = True
 
 
+
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -38,10 +40,12 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'import_export',
+    'corsheaders',
     
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware', #New
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',

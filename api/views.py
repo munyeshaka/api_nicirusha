@@ -12,7 +12,7 @@ def home(request):
 
 
 class ArticleViewSet(viewsets.ModelViewSet):
-    queryset = Article.objects.filter(published=1, edit=1).order_by('-date')
+    queryset = Article.objects.filter(published=1, edit=1).order_by('-id')
     serializer_class = ArticleSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 

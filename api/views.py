@@ -1,8 +1,7 @@
 from django.shortcuts import render
 
 from django.contrib.auth.models import User
-from rest_framework import viewsets
-from rest_framework import permissions
+from rest_framework import viewsets, permissions
 from api.serializers import *
 from django.shortcuts import render
 
@@ -13,6 +12,7 @@ def home(request):
 
 class ArticleViewSet(viewsets.ModelViewSet):
     queryset = Article.objects.filter(published=1, edit=1).order_by('-id')
+    lookup_field = 'slug' ## instead of id
     serializer_class = ArticleSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 

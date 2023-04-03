@@ -7,6 +7,7 @@ from .models import *
 class ArticleSerializer(serializers.ModelSerializer):
     class Meta:
         model = Article
+        lookup_field = 'slug' ## instead of id
         fields = '__all__'
 
 

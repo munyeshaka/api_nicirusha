@@ -4,6 +4,7 @@ from django.urls import reverse
 from django.utils.text import slugify
 
 
+
 class Autor(models.Model):
     fullName = models.CharField(max_length=200)
     phone = models.CharField(max_length=200, blank=False, null=True)
@@ -36,6 +37,7 @@ class Article(models.Model):
     edit = models.BooleanField(default=False)
     date = models.DateField(default=datetime.now())
     slug = models.SlugField(null=False, unique=True)
+    ## or slug = AutoSlugField(populate_from=['title'])
 
     def __str__(self):
         return self.title

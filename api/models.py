@@ -36,14 +36,18 @@ class Article(models.Model):
     published = models.BooleanField(default=False)
     edit = models.BooleanField(default=False)
     date = models.DateField(default=datetime.now())
+    updated_at = models.DateField(default=datetime.now())
     slug = models.SlugField(null=False, unique=True)
     ## or slug = AutoSlugField(populate_from=['title'])
 
+    # def __str__(self):
+    #     return self.title
     def __str__(self):
-        return self.title
+        return self.slug
 
     def get_absolute_url(self):
-        return reverse("article_detail", kwargs={"slug": self.slug})
+        # return reverse("article_detail", kwargs={"slug": self.slug})
+        return reverse("article-detail", kwargs={"slug": self.slug})
 
     def save(self, *args, **kwargs):  # new
         if not self.slug:

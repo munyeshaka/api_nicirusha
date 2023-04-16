@@ -41,11 +41,17 @@ INSTALLED_APPS = [
     'rest_framework',
     'import_export',
     'corsheaders',
+    'django.contrib.sitemaps',# New
+    # 'django.contrib.sites',  # New
     
 ]
 
+SITEMAP_URL_PREFIX = '/sitemap/'
+SITEMAP_USE_XSLT = True
+SITEMAP_PATH = 'sitemap.xml'
+
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware', #New
+    'corsheaders.middleware.CorsMiddleware', # New
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -53,6 +59,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'api_nicirusha.urls'

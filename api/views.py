@@ -8,6 +8,12 @@ from django.shortcuts import render
 def home(request):
     return render(request, 'api/index.html')
 
+def article_detail(request):
+    return render(request, '/sitemap.xml')
+
+def category_detail(request):
+    return render(request, '/sitemap.xml')
+
 
 class Last_4_ArticleViewSet(viewsets.ModelViewSet):
     queryset = Article.objects.filter(published=1, edit=1).order_by('-id')[:4]

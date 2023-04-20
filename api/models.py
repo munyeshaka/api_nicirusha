@@ -1,5 +1,6 @@
 from django.db import models
 from datetime import datetime
+now_date = datetime.now()
 from django.urls import reverse
 from django.utils.text import slugify
 
@@ -35,8 +36,8 @@ class Article(models.Model):
 
     published = models.BooleanField(default=False)
     edit = models.BooleanField(default=False)
-    date = models.DateField(default=datetime.now())
-    updated_at = models.DateField(default=datetime.now())
+    date = models.DateField(default=now_date)
+    updated_at = models.DateField(default=now_date)
     slug = models.SlugField(null=False, unique=True)
     ## or slug = AutoSlugField(populate_from=['title'])
 

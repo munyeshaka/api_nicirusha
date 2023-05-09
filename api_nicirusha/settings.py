@@ -60,6 +60,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
+    # 'django_secure.middleware.SecurityMiddleware', # NEW
+
 ]
 
 ROOT_URLCONF = 'api_nicirusha.urls'
